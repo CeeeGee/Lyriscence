@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="fx"></canvas>
+  <div class="wrap">
+    <div class="panel">
+      <div id="meta"></div>
+      <div id="btns">
+        <button id="b-mode" title="Text"><svg viewBox="0 0 24 24"><path d=""/></svg></button>
+        <button id="b-fx" title="Light"><svg viewBox="0 0 24 24"><path d=""/></svg></button>
+        <button id="b-min" title="Minimise"><svg viewBox="0 0 12 12"><path d="M2 6h8"/></svg></button>
+        <button id="b-max" title="Maximise"><svg viewBox="0 0 12 12"><rect x="2" y="2" width="8" height="8" rx="1"/></svg></button>
+        <button id="b-close" class="x" title="Close"><svg viewBox="0 0 12 12"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7"/></svg></button>
+      </div>
+      <div id="stage"></div>
+      <div id="hint">[ ] sync &nbsp;·&nbsp; space play/pause &nbsp;·&nbsp; ← → skip &nbsp;·&nbsp; L light &nbsp;·&nbsp; V text</div>
+      <div id="grip" title="Drag to resize"></div>
+    </div>
+  </div>
+  <script src="theme.js"></script>
+  <script src="glow.js"></script>
+  <script src="lightning.js"></script>
+  <script src="renderer.js"></script>
+</body></html>

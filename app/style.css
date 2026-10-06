@@ -1,0 +1,51 @@
+@property --a { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+:root { --m: 30px; --r: 28px; --g1: #ffaa3c; --g2: #ff6a3c; --g3: #ffd23c; --t: #f2c9a0; --hl: #d9480f; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: transparent; overflow: hidden; color: #fff;
+  font-family: 'Nunito', 'Arial Rounded MT Bold', 'Segoe UI Black', sans-serif; user-select: none; }
+body.max { --m: 0px; --r: 0px; background: #000; }      /* full screen: no margin, no rounded corners */
+
+.wrap { position: absolute; inset: var(--m); }
+
+/* lightning canvas sits on top of everything, never blocks clicks */
+#fx { position: fixed; left: 0; top: 0; pointer-events: none; z-index: 20; }
+
+.panel { position: absolute; inset: 0; border-radius: var(--r); background: #000; overflow: hidden;
+  -webkit-app-region: drag; }
+
+#meta { position: absolute; top: 18px; left: 26px; font-size: 14px; font-weight: 700; opacity: .5; letter-spacing: .03em; z-index: 2; }
+#hint { position: absolute; bottom: 14px; left: 26px; font-size: 11px; opacity: .3; font-weight: 700; z-index: 2; }
+
+#btns { position: absolute; top: 12px; right: 14px; display: flex; gap: 6px; -webkit-app-region: no-drag; z-index: 5; }
+#btns button { width: 32px; height: 32px; border: 0; border-radius: 10px; cursor: pointer; padding: 0;
+  background: rgba(255,255,255,.08); transition: background .15s; }
+#btns button:hover { background: rgba(255,255,255,.2); }
+#b-fx svg, #b-mode svg { stroke-width: 3.2; }                       /* icon drawn on a 24-unit grid */
+#b-fx[data-mode=move] svg { stroke: var(--g1); }
+#b-fx[data-mode=off] svg { opacity: .5; }
+#btns button.x:hover { background: #e5384a; }
+#btns svg { width: 12px; height: 12px; fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; }
+
+#grip { position: absolute; right: 0; bottom: 0; width: 28px; height: 28px; cursor: nwse-resize;
+  -webkit-app-region: no-drag; z-index: 5;
+  background: linear-gradient(135deg, transparent 55%, rgba(255,255,255,.25) 55% 60%, transparent 60% 72%, rgba(255,255,255,.25) 72% 77%, transparent 77%); }
+body.max #grip { display: none; }
+
+/* ---------- lyrics window: a rolling conveyor ----------
+   the stage clips everything, old line travels up and out, new line travels up in from below.
+   renderer.js moves every row by the same distance at the same speed, so the two lines never overlap. */
+#stage { position: absolute; inset: 56px 36px 40px; z-index: 2; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 9%, #000 91%, transparent 100%); }
+.stack { position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center; }
+.row { line-height: 1.05; padding: .06em .14em .12em; margin: -.03em 0; will-change: transform; }
+.in { display: inline-block; color: var(--t); will-change: transform, opacity; }
+.hline { max-width: 94%; line-height: 1.22; font-weight: 800; }        /* standard horizontal text */
+.t-h { font-weight: 800; }
+
+.t-big { font-weight: 900; letter-spacing: -.02em; }
+.t-md  { font-weight: 800; }
+.t-sm  { font-weight: 700; font-style: italic; }
+.t-hl  { font-weight: 800; font-style: italic; color: #fff; background: var(--hl);
+         padding: .02em .3em .06em; border-radius: .12em; }

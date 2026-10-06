@@ -1,0 +1,9 @@
+{
+  "name": "lyriscence",
+  "version": "0.1.0",
+  "description": "Kinetic synced lyrics overlay for Windows",
+  "main": "main.js",
+  "scripts": { "start": "electron ." },
+  "license": "MIT",
+  "devDependencies": { "electron": "^33.0.0" }
+}
