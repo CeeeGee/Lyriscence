@@ -24,6 +24,11 @@
 
 Lyriscence reads whatever is currently playing on your PC (Spotify desktop, YouTube in a browser, and so on) through the Windows media session, fetches time-synced lyrics from [LRCLIB](https://lrclib.net), and shows them as a vertical stack of bold, animated typography. The lyrics window is wrapped in a moving glow coloured from the album art, and a separate glass player card gives you playback controls.
 
+<p align="center">
+  <img src="docs/gif2.gif" width="49%" alt="Lyriscence lyrics window">
+  <img src="docs/gif1.gif" width="49%" alt="Lyriscence player card and glow">
+</p>
+
 ## Features
 
 - **Works with any player**: anything that reports to the Windows media controls.
@@ -33,6 +38,8 @@ Lyriscence reads whatever is currently playing on your PC (Spotify desktop, YouT
 - **Glass player card** with previous / play-pause / next.
 - **Light mode** and **vertical / horizontal** text layouts.
 - **Manual sync nudging** when lyrics are slightly off.
+
+
 
 ## How it works
 
